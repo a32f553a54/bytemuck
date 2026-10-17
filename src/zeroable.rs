@@ -176,8 +176,8 @@ impl_unsafe_marker_for_array!(
 );
 
 impl_unsafe_marker_for_simd!(
-  #[cfg(all(target_arch = "wasm32", feature = "wasm_simd"))]
-  unsafe impl Zeroable for wasm32::{v128}
+  #[cfg(all(target_family = "wasm", feature = "wasm_simd"))]
+  unsafe impl Zeroable for wasm::{v128}
 );
 
 impl_unsafe_marker_for_simd!(
