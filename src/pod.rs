@@ -97,7 +97,7 @@ impl_unsafe_marker_for_array!(
 );
 
 impl_unsafe_marker_for_simd!(
-  #[cfg(all(target_family = "wasm", feature = "wasm_simd"))]
+  #[cfg(all(feature = "wasm_simd", any(target_arch = "wasm32", all(target_arch = "wasm64", feature = "nightly_simd_wasm64"))))]
   unsafe impl Pod for wasm::{v128}
 );
 
