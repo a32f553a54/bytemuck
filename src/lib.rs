@@ -9,7 +9,10 @@
 #![cfg_attr(feature = "nightly_docs", feature(doc_cfg))]
 #![cfg_attr(feature = "nightly_portable_simd", feature(portable_simd))]
 #![cfg_attr(feature = "nightly_float", feature(f16, f128))]
-#![cfg_attr(feature = "nightly_simd_wasm64", feature(simd_wasm64))]
+#![cfg_attr(
+  all(target_arch = "wasm64", feature = "nightly_simd_wasm64"),
+  feature(simd_wasm64)
+)]
 
 //! This crate gives small utilities for casting between plain data types.
 //!
